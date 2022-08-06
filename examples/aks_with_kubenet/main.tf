@@ -4,7 +4,7 @@ features {}
 
 module "rg" {
   source  = "spy86/rg/azure"
-  version = "1.0.4"
+  version = "1.0.5"
   resource_group_name = "k8s-test"
   environment = "dev" 
   region = "weu"
@@ -21,7 +21,7 @@ module "rg" {
 
 module "virtual-network" {
   source  = "spy86/virtual-network/azure"
-  version = "1.0.10"
+  version = "1.0.11"
   resource_group_name = "dev-k8s-test-weu-rg"
   environment = "dev"
   region = "weu"
@@ -55,7 +55,7 @@ depends_on = [ "module.rg" ]
 
 module "aks" {
   source  = "spy86/aks-with-kubenet/azure"
-  version = "1.0.1"
+  version = "1.0.2"
   resource_group_name = "dev-k8s-test-weu-rg"
   client_id = "some_client_id"
   client_secret = "some_client_secret"
@@ -76,7 +76,7 @@ module "aks" {
   enable_log_analytics_workspace = true
   agents_size = "Standard_B2s"
   agents_count = 1
-  aks_version = "1.21.7"
+  aks_version = "1.22.11"
   max_pods = 60
   aks_sku_tier = "Free"
   enable_attach_acr = false
